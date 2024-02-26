@@ -6,6 +6,11 @@
 //
 
 import Foundation
+import RealmSwift
 
 print("Hello, World!")
 
+
+let loc = Location()
+
+print(loc)
