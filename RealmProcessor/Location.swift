@@ -6,13 +6,16 @@
 //
 
 import Foundation
+import RealmSwift
 
 
-class Location {
-    var prefectureCode = ""
-    var prefectureName = ""
-    var cityCode = ""
-    var cityName = ""
-    var blockCode = ""
-    var blockName = ""
+class Location: Object {
+    @objc dynamic var prefectureCode = ""
+    @objc dynamic var prefectureName = ""
+    @objc dynamic var cityCode = ""
+    @objc dynamic var cityName = ""
+    @objc dynamic var blockCode = ""
+    @objc dynamic var blockName = ""
+    @objc dynamic var latitude = ""
+    @objc dynamic var longitude = ""
 }
