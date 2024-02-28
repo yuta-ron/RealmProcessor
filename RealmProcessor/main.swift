@@ -39,8 +39,6 @@ func importCSV(filePath: URL) {
         let cfg = Realm.Configuration(deleteRealmIfMigrationNeeded: true)
         let realm = try! Realm(configuration: cfg)
 
-        let locmodel = Location()
-
         print("start")
         // 各行を解析してRealmオブジェクトに変換
         for (i, row) in rows.enumerated() {
@@ -54,6 +52,7 @@ func importCSV(filePath: URL) {
                 continue
             }
             
+            let locmodel = Location()
             locmodel.prefectureCode = Int(columns[0]) ?? -1
             locmodel.prefectureName = columns[1]
             locmodel.cityCode = Int(columns[2]) ?? -1
