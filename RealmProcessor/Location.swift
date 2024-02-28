@@ -10,12 +10,12 @@ import RealmSwift
 
 
 class Location: Object {
-    @objc dynamic var prefectureCode = ""
-    @objc dynamic var prefectureName = ""
-    @objc dynamic var cityCode = ""
-    @objc dynamic var cityName = ""
-    @objc dynamic var blockCode = ""
-    @objc dynamic var blockName = ""
-    @objc dynamic var latitude = ""
-    @objc dynamic var longitude = ""
+    @Persisted var prefectureCode: Int = 0
+    @Persisted var prefectureName: String = ""
+    @Persisted var cityCode: Int = 0
+    @Persisted var cityName: String = ""
+    @Persisted var blockCode: Int = 0
+    @Persisted var blockName: String = ""
+    @Persisted var latitude: Double = 0.0
+    @Persisted var longitude: Double = 0.0
 }

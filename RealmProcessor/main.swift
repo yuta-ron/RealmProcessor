@@ -9,6 +9,8 @@ import Foundation
 import RealmSwift
 
 
+print(Realm.Configuration.defaultConfiguration.fileURL!)
+
 do {
     let fm = FileManager.default
     //let curdir = fm.currentDirectoryPath
@@ -37,6 +39,8 @@ func importCSV(filePath: URL) {
         let cfg = Realm.Configuration(deleteRealmIfMigrationNeeded: true)
         let realm = try! Realm(configuration: cfg)
 
+        let locmodel = Location()
+
         print("start")
         // 各行を解析してRealmオブジェクトに変換
         for (i, row) in rows.enumerated() {
@@ -50,15 +54,14 @@ func importCSV(filePath: URL) {
                 continue
             }
             
-            let locmodel = Location()
-            locmodel.prefectureCode = columns[0]
+            locmodel.prefectureCode = Int(columns[0]) ?? -1
             locmodel.prefectureName = columns[1]
-            locmodel.cityCode = columns[2]
+            locmodel.cityCode = Int(columns[2]) ?? -1
             locmodel.cityName = columns[3]
-            locmodel.blockCode = columns[4]
+            locmodel.blockCode = Int(columns[4]) ?? -1
             locmodel.blockName = columns[5]
-            locmodel.longitude = columns[6]
-            locmodel.latitude = columns[7]
+            locmodel.longitude = Double(columns[6]) ?? -1
+            locmodel.latitude = Double(columns[7]) ?? -1
             try! realm.write {
                 realm.add(locmodel)
             }
